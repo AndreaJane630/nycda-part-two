@@ -1,0 +1,975 @@
+  /* Andrea J. Chiappetta - As of Thursday 6/21/18, this is the most current */
+
+html { 
+	font-size: 16px;
+}
+body {
+	box-sizing: border-box;
+	margin: 0;
+	background-color: #fefefe;
+}
+
+#chatcircle {
+	position: fixed;
+	z-index: 10;
+	bottom: 25px;
+	right: 25px;
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+	background-color: #6aaef6;
+}
+#chatbox {
+	position: absolute;
+	top: 17px;
+	left: 18px;
+	width: 30px;
+	height: 31px;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	background: #fff;
+}
+
+#chatbox:after {
+	content: "";
+	position:absolute;
+	top: 31px;
+	right: 0px;
+	height: 0;
+	width: 0;
+	border-top: 3px solid #fff;
+	border-right: 3px solid #fff;
+	border-left: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+}
+
+#smile {
+		width: 16px;
+		height: 4px;
+		border: 2.2px solid #6aaef6;
+		border-top: 0;
+		/*border-radius: 0 0 20px 20px / 0 0 12px 12px;  */
+		border-radius: 0 0 25px 25px / 0 0 16px 16px; 
+		position: absolute;
+		bottom: 5px;
+		left: 4.2px;
+}
+#topbar {
+	background-color: #1a1919;
+	height: 70px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+}
+#logo-container {
+	height: 100%; 
+	display: flex;
+	align-items: center;
+}
+.logo {
+	margin: 10px 15px 0 20px;
+}
+#topbar span {
+	font-family: Roboto;
+	font-size: .71rem;
+}
+#topbar span:hover { 
+	cursor: help;
+}
+#logo-container div:first-of-type {
+	position: relative;
+}
+	
+.partone {
+	color: #fefefe;
+}
+.parttwo {
+	color: #ffcb04;
+}
+
+#logo-container div:first-of-type #change {
+	display: none;
+	position: absolute;
+	top: 18px;
+	bottom: 0;
+	left: 15px;	
+	z-index: 9;
+	background: #1a1919;
+	transition: 1s;
+	list-style-type: none;
+	color: #fefefe;
+	padding: 20px;
+	padding-bottom: 30px;
+	width: auto;
+	font-size: .7rem;
+	font-family: Roboto, sans-serif;
+}
+#logo-container div:first-of-type:hover #change {
+	display: block;
+} 
+
+ul {
+	list-style-type: none;
+}
+#topbar #outer-ul {  
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	display: flex;
+	justify-content: space-between;
+	list-style-type: none;
+	margin: 0;
+}
+#topbar ul li {
+	color: #fefefe;
+	margin-left: 25px;
+	font-family: Roboto;
+	font-size: .85rem;
+	transition: .25s ease-out;
+}
+#topbar #outer-ul > li {
+	position: relative;
+} 
+#topbar ul li a {
+	color: #fefefe;
+	text-decoration: none;
+	transition: .25s ease-out;
+}
+#topbar ul li:hover {
+	color: #ffcb04;
+	cursor: pointer;
+} 
+#topbar ul li a:hover {
+	color: #ffcb04;
+}
+#topbar #outer-ul .menu {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 16px;
+	z-index: 9;
+	background: #1a1919;
+	transition: 1s;
+	list-style-type: none;
+	color: #fefefe;
+	padding: 20px 0 20px 20px;
+	width: 180px; 
+}
+#topbar #outer-ul .menu li {
+	padding: 15px 0;
+	text-align: left;
+	margin-left: 0;
+	font-size: .85rem;
+}
+#topbar #outer-ul .menu li:last-of-type {
+	padding-bottom: 0;
+}
+#topbar #outer-ul > li:hover .menu {
+	display: block;
+}
+#login {
+	width: 150px;
+	height: 40px;
+	padding: 11px 20px;
+	border: 1px solid #fefefe;
+	align-self: center;
+	text-transform: uppercase;
+	font-size: .7rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	transition: .25s ease-out;
+}
+#topbar #login:hover {
+	background: #fefefe;
+	color: #1a1919;
+}
+header {
+	position: absolute;
+	top: 70px;
+	left: 0;
+	right: 0;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	background: linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)),
+	url(images/nycda-blog-page.jpg) center; 
+	background-size: cover;
+}
+#headercontent {
+	
+	max-width: 1170px; /*1250px; */
+	margin-left: auto; 
+	margin-right: auto; 
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-left: 15px;
+}
+
+#search-container input {
+	margin-top: 1.5rem;
+	width: 305px;
+	height: 35px;
+	box-sizing: border-box;
+	/*margin-left: 34px;*/
+	padding: .5rem;
+	background-color: #ededed;
+	font-size: .9rem; 
+	border: 1px solid darkslategray;
+}
+#search-container button {
+	width: 53px;
+	height: 35px;
+	background-color: #ffcb04;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	vertical-align: bottom;
+	transition: .25s ease-out;
+}
+#search-container button:hover {
+	background: #1a1919;
+}
+#search-container button:hover i {
+	color: #fefefe;
+}
+.fa-search {
+	font-size: 1.25rem;
+}
+#search-container::placeholder {
+    color: #bbb;
+    opacity: 1; /* Firefox */
+	letter-spacing: .8px;
+}
+#featured * {
+	margin: 0;
+	margin-bottom: .5rem;
+}
+#featured h6 {
+	font-size: 1rem;
+	font-weight: 400;
+}
+#featured p, #featured h2, #featured h6, #featured a {
+	text-align: left;
+}
+#featured h2, #featured h6, #featured p {
+	color: #fefefe;
+	font-family: 'Roboto', sans-serif;
+}
+#featured p {
+	font-size: .95rem;
+	line-height: 1.6;
+}
+#featured p:first-of-type {
+	color: #ffcb04;
+	margin-top: 0;
+	font-size: 1.1rem;
+	letter-spacing: 1px;
+}
+#featured h2 a {
+	font-size: 2.25rem;
+	font-family: Roboto, sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fefefe;
+	font-weight: 700;
+	transition: .25s ease-out;
+}
+#featured h2 a:hover {
+	color: #ffcb04;
+}
+#featured p a {
+	font-size: .95rem;
+	color: #ffcb04;
+	font-family: Roboto;
+	text-decoration: none;
+}
+#featured .fa-caret-right {
+	vertical-align: text-top;
+	color: #ffcb04;
+	padding-left: 5px; 
+}
+
+main {
+	position: absolute;
+	top: 470px;
+	left: 0;
+	right: 0;
+	flex-direction: column;
+	display: flex;
+}
+#blogcontainer {
+	
+	max-width: 1170px;
+	padding: 0 15px;
+	/*box-sizing: border-box;*/
+	margin: 60px auto 0 auto;  /* temporary */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#blogcontainer > div {
+	width: 32%;
+	max-width: 400px;
+	background-color: #f7f7f7;
+	height: 432px;
+	margin-bottom: 32px;
+	text-align: left;
+	border: 1px solid #ededed;
+	box-sizing: border-box;
+	font-family: Roboto, sans-serif;
+}
+
+h3 {
+	/*font-size: 1.2rem; not necessary - put for h3 a element */
+	margin-top: .5rem;
+}
+
+#blogcontainer p {
+	color: #777;
+	font-size: .8rem;
+	letter-spacing: 1px;
+	line-height: 1.5;
+}
+.blog-card-body p ~ a {
+	font-size: .6rem;
+	color: #0a0a0a;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Roboto, sans-serif;
+	font-weight: 700;
+	margin-right: 2px;
+}
+.blog-card-body h3 a {
+	font-size: 1.2rem;
+	text-decoration: none;
+	color: #0a0a0a;
+	
+}
+.blog-card-body {
+	height: 280px;
+	padding: 20px;
+}
+.blog-card-header {
+	height: 150px;
+	background-size: cover;
+	background-position: center;
+}
+.one {
+	background-image: url(images/handshake.jpg);
+}
+.two {
+	background-image: url(images/SetApart.jpg);
+}
+.three {
+	background-image: url(images/rochelle-nicole-nycda.jpg);
+}
+.four {
+	background-image: url(images/blog-post-4.jpg);
+}
+.five {
+	background-image: url(images/blog-post-5.jpg);
+}
+.six {
+	background-image: url(images/blog-post-6.jpg);
+}
+.seven {
+	background-image: url(images/blog-post-7.jpg);
+}
+.eight {
+	background-image: url(images/blog-post-8.jpg);
+}
+.nine {
+	background-image: url(images/blog-post-9.jpg);
+}
+.ten {
+	background-image: url(images/blog-post-10.jpg);
+}
+.eleven {
+	background-image: url(images/blog-post-11.jpg);
+}
+.twelve {
+	background-image: url(images/blog-post-12.jpg);
+}
+.thirteen {
+	background-image: url(images/blog-post-13.jpg);
+}
+.fourteen {
+	background-image: url(images/blog-post-14.jpg);
+}
+.fifteen {
+	background-image: url(images/blog-post-15.jpg);
+}
+.sixteen {
+	background-image: url(images/blog-post-16.png);
+}
+.seventeen {
+	background-image: url(images/blog-post-17.jpg);
+}
+.eighteen {
+	background-image: url(images/blog-post-18.png);
+}
+.nineteen {
+	background-image: url(images/blog-post-19.jpg);
+}
+.twenty {
+	background-image: url(images/blog-post-20.jpg);
+}
+.twenty-one {
+	background-image: url(images/blog-post-21.jpg);
+}
+/* 15th and 22nd images are the same on nycda website */
+
+.twenty-two {
+	background-image: url(images/blog-post-15.jpg);
+}
+.twenty-three {
+	background-image: url(images/blog-post-23.jpg);
+}
+.twenty-four {
+	background-image: url(images/blog-post-24.jpg);
+}
+.blog-date {
+	width: 100%; 
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-family: Roboto, sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.author, .date {
+	margin: 0;
+	margin-bottom: 16px;
+}
+.fa-caret-right {
+	vertical-align: bottom;
+}
+.fa-caret-down {
+	color: #d6aa00;
+	padding-left: 5px;
+} 
+.pagination {
+	display: flex;
+	width: 360px;
+	margin: 70px auto 0 auto;
+	justify-content: space-around;
+}
+.uno {
+	background: #ffcb04;
+	color: #fefefe;
+	display: inline-block;
+	padding: 6px 10px; 
+}
+.ellip {
+	align-self: center;
+}
+.pagination a {
+	font-family: Roboto;
+	display: inline-block;
+    color: #0a0a0a;
+    padding: 6px 10px; 
+    text-decoration: none;
+    transition: background-color .25s;
+}
+.next, .last {
+	 padding: 0; 
+}
+.pagination a:hover {
+    background-color: rgba(220,220,220,.5);
+    color: #ffcb04;
+}
+footer {
+	background: #1a1919;
+	padding: 70px 0;
+	height: 452px;
+	margin-top: 68px;
+	box-sizing: border-box;
+}
+#about-nycda, #nycda-details {
+	padding-left: 25px;
+}
+#social {
+	padding-right: 25px;
+}
+#footer-content {
+	display: flex;
+	max-width: 1170px;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+#footer-logo {
+	max-width: 1170px;
+	text-align: left;
+	margin: 20px auto 0;
+}
+#footer-logo img {
+	margin-left: 20px;
+}
+#about-nycda {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	margin: 0;
+	height: 210px;
+}
+#about-nycda li a	{
+	text-transform: uppercase;
+	color: #fff;
+	font-size: .9375rem;
+	font-family: Roboto;
+	text-decoration: none;
+	font-weight: 700;
+	text-align: left;
+	transition: .25s ease-out;
+}
+#about-nycda li a:hover	{
+	color: #ffcb04;
+} 
+#social span {
+	padding-left: 10px;
+}
+#social li {
+	width: 125px;
+	display: flex;
+	justify-content: space-between;
+	height: 35px;
+}
+#social li a {
+	color: #fefefe;
+	font-size: .85rem;
+	font-family: Roboto;
+	text-decoration: none;
+	transition: .25s ease-out;
+}
+#social li a:hover {
+	color: #ffcb04;
+} 
+#social li .faceb {
+	font-size: 13px;
+	color: #1a1919;
+	background: #858585;
+	padding: 2px 2px 0 5px;
+}
+#social li .bird {
+	font-size:18px;
+	color: #858585;
+}
+#social li .insta {
+	font-size: 18px;
+	color: #858585;
+	background: #1a1919;
+}
+#social li .link {
+	font-size:14px;
+	color: #1a1919;
+	background: #858585;
+	padding: 2px; 
+}	
+#social li .you {
+	font-size:10px;
+	color: #1a1919;
+	background: #858585;
+	padding: .9px 7px 1px 7px;
+	border-radius: 4px;
+	/*display:inline-block;*/
+}
+#nycda-details {
+	color: #fefefe;
+	font-family: Roboto;
+	margin: 0;
+	font-size: .8rem;
+	line-height: 1.6;
+}
+#nycda-details a {
+	text-decoration: none;
+	color: #fefefe;
+	transition: .25s ease-out;
+}
+#nycda-details a:hover {
+	color: #ffcb04;
+}
+#sign-up {
+	display: flex;
+	flex-direction: column;
+	color: #fefefe;
+	font-family: Roboto;
+	padding-right: 20px;
+}
+#sign-up p {
+	font-size: 24px;
+	margin: .7rem 0 .5rem 0;
+}
+#sign-up a {
+	text-decoration: none;
+}  
+#sign-up input {
+	background: #ededed;
+	border: 1px solid #1a1919;
+	height: 40px;
+	color: #1a1919;
+	margin-bottom: 10px;
+	font-family: Roboto;
+	text-align: left;
+	padding-left: 15px;
+	font-size: .9rem;
+	width: 360px;
+	box-sizing: border-box;
+}
+#sign-up button {
+	height: 40px;
+	background: #ffcb04;
+	border: none;
+	text-transform: uppercase;
+	font-size: .7rem;
+	font-weight: 700;
+	width: 360px;
+	transition: .25s ease-out;
+}
+#sign-up::placeholder {
+    color: #1a1919;
+    opacity: 1; /* Firefox */
+}
+#sign-up button a {
+	color: #1a1919;
+	letter-spacing: 1px;
+	font-weight: 700;
+	cursor: pointer;
+	padding: 5px;
+	transition: .25s ease-out;
+}
+#sign-up button:hover {
+	background: #1a1919;
+}
+#sign-up button:hover a {
+	color: #fefefe;
+}
+
+@media (max-width: 1000px) {
+	
+/* I learned about this animation in Dan's animation seminar at Noble */
+	
+	@keyframes slide-in { 
+		0% {
+			opacity: 0;
+			/*transform: translateY(100px) scale(.9); */
+			transform: translateY(200px) scale(.9);
+		}
+		100% {
+			opacity: 1;
+			/*transform: none; I don't see the point of this */
+		}
+	}
+	
+/* burger comes into play when we go down to 2 blog cards per "row" */	
+	
+#burger {
+	width: 30px;
+	position: absolute;
+	top: 25px;
+	right: 25px; 
+	display: none; 
+	cursor: pointer;
+}
+/* these are the components of the burger "icon" */
+
+.bar1, .bar2, .bar3 {
+	width: 30px;
+	height: 2px;
+	background-color: #fefefe;
+	margin: 3px 0; 
+	transition: .25s ease-out;
+}
+#burger:hover div {
+	background-color: #ccc;
+}
+.change .bar1 {
+	transform: rotate(-45deg) translate(-4px, 4px); 
+	}
+.change .bar2 {
+	opacity: 0;
+}
+.change .bar3 {
+	transform: rotate(45deg) translate(-3px, -3px); 
+}
+	*:after, *:before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#overlay li a 
+	{margin:0;padding:0;border:0 none;position: relative; outline: none;
+}	
+
+#overlay {
+	width: 100%;
+	position: fixed;
+	top: 70px;
+	bottom: 0;
+	background: #1a1919;
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#overlay ul {
+	padding-top: 30px;
+	height: 100%;
+}
+#overlay li {
+	height: 5%;
+	text-align: center;
+	margin-top: 7px;
+	position: relative;
+	opacity: 0;
+}
+#overlay li a {
+	font-family: Roboto, sans-serif;
+	color: #fefefe;
+	text-decoration: none;
+	z-index: 9;
+	display: inline-block;
+	padding-bottom: 4px;
+	font-size: 1rem;
+	letter-spacing: .8px;
+}
+#overlay .gold {
+	color: #ffcb04;
+}
+#overlay.show {
+	z-index: 9;
+	display: flex;
+	justify-content: center;
+}
+#overlay li a:before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#overlay li a:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#overlay li a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px; 
+  bottom: 0;
+  left: 0;
+  background: #fefefe;
+  visibility: hidden;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: .3s linear; /*.25s linear; */
+}
+#overlay li a:hover:before,
+#overlay li a:focus:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+#overlay li {
+		animation-name: slide-in;
+		animation-duration: .5s; /*1s; */
+		animation-fill-mode: forwards; 
+	}
+	/* let each component of the "title" make its appearance individually */
+	
+/*#overlay li:nth-child(1) {
+		animation-delay: .5s;
+	}*/
+#overlay li:nth-child(2) {	
+		animation-delay: .25s;
+	}
+#overlay li:nth-child(3) {
+		animation-delay: .5s;
+	}	
+#overlay li:nth-child(4) {
+		animation-delay: .75s;
+	}	
+	#overlay li:nth-child(5) {
+		animation-delay: 1s;
+	}	
+	#overlay li:nth-child(6) {
+		animation-delay: 1.25s;
+	}	
+	#overlay li:nth-child(7) {
+		animation-delay: 1.5s;
+	}	
+	
+	#topbar span:hover { 
+		cursor: pointer;
+	}
+	#burger:hover div {
+		cursor: pointer;
+	}
+	#featured h2 a {
+		font-size: 2rem; /* should be 32px */
+	}
+	#topbar #outer-ul {
+		display: none;
+	}
+	#topbar span {
+		display: none;
+	}
+	
+	#burger {
+		display: block;
+	}
+	 #blogcontainer {
+		max-width: 950px;
+		justify-content: space-around;
+	}
+	 #blogcontainer > div {
+		width: 46%;
+		max-width: 400px;
+	}
+	
+	/* add footer stuff - goes to flex wrap and each ul takes up ~50% - previously, should take up ~25%, although seems to have larger space between 2nd and third uls */
+	
+	footer {
+		height: 645px;
+		box-sizing: border-box;
+		
+	}
+	#footer-content {
+		flex-wrap: wrap;
+		/*justify-content: space-around;*/
+	}
+	
+	#footer-content #social, #footer-content #about-nycda, #footer-content #nycda-details, #footer-content #sign-up {
+		width: 42%;
+	}
+	#footer-content #sign-up * {
+		width: 100%
+	}
+}
+/* Must add MQ for mobile size - use flex-direction: column with width 90% */
+
+@media (max-width: 620px) {
+	#topbar ul {
+		display: none;
+	}
+	#topbar span {
+		display: none;
+		
+	}
+	#burger {
+		display: block;
+	}
+	#search-container {
+		width: 97%;
+	}
+	#search-container button {
+		width: 15%;
+	}
+	#search-container input {
+		width: 80%;
+	}
+	#featured h2 a {
+		font-size: 2rem;
+	}
+	#blogcontainer {
+		max-width: 570px;
+		flex-direction: column;
+		align-items: center;
+	}
+	#blogcontainer > div {
+		width: 100%; /* 92%; */
+		max-width: 400px;
+	/*	margin-left: auto;
+		margin-right: auto;*/
+	}
+	footer {
+		height: 698px;
+		padding: 0;
+	}
+	#footer-content {
+		width: 100%; /*97%; */
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+	
+	#footer-content #about-nycda {
+		display: flex;
+		width: 100%;
+		flex-wrap: wrap;
+		flex-direction: row;
+		margin-top: 25px;
+		height: 130px;
+		padding-left: 15px;
+		border-bottom: 1px solid #333;
+		
+	}
+	#footer-content #social {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		background-color: #2d2c2c;
+		justify-content: space-around;	
+		padding-top: 15px;
+ 		margin-bottom: 0;
+		height: 39px;
+	}
+	#footer-content #social span {
+		visibility: hidden;
+	}
+
+	#footer-content #about-nycda li {
+		width: 48%;
+	}
+	#about-nycda li a	{
+		font-size: 14px;
+	}
+	#footer-content #nycda-details {
+		margin-bottom: 25px; 
+		width: 100%;
+	} 
+		
+	#footer-content #sign-up {
+		padding-top: 25px; 
+		width: 100%; 
+		padding-right: 15px;
+		padding-left: 20px;
+		box-sizing: border-box;
+	}
+	#sign-up {
+		order: -1;
+		width: 100%;
+	}
+	#nycda-details {
+		order: 1;
+	}
+	#social {
+		order: 2;
+	}
+	#footer-logo {
+		margin: 0;
+	}
+}
+@media (max-width: 400px) {
+	#headercontent #featured h2 {
+		line-height: 1;
+	}
+	#headercontent #featured h2 a {
+		font-size: 1.85rem;
+	}
+	#search-container input {
+		margin-top: 1rem;
+	}
+	
+	footer {
+		height: 730px;
+	}
+	.pagination {
+		width: 100%;
+		flex-wrap: wrap;
+	}
+	
+}
+	

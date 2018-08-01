@@ -1,0 +1,418 @@
+body {
+	font-size: 14px;
+	background: #fefefe;
+	font-family: Roboto, sans-serif;
+	margin: 0;
+	
+}
+#topbar {
+	background-color: #1a1919;
+	height: 70px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+}
+#logo-container {
+	height: 100%; 
+	display: flex;
+	align-items: center;
+}
+.logo {
+	margin: 10px 15px 0 20px;
+}
+#topbar span {
+	font-family: Roboto;
+	font-size: .71rem;
+}
+#topbar span:hover { 
+	cursor: help;
+}
+#logo-container div:first-of-type {
+	position: relative;
+}
+	
+.partone {
+	color: #fefefe;
+}
+.parttwo {
+	color: #ffcb04;
+}
+
+#logo-container div:first-of-type #change {
+	display: none;
+	position: absolute;
+	top: 18px;
+	bottom: 0;
+	left: 15px;	
+	z-index: 9;
+	background: #1a1919;
+	list-style-type: none;
+	color: #fefefe;
+	padding: 20px;
+	padding-bottom: 30px;
+	width: auto;
+	font-size: .7rem;
+	font-family: Roboto, sans-serif;
+}
+#logo-container div:first-of-type:hover #change {
+	display: block;
+} 
+ul {
+	list-style-type: none;
+}
+#topbar #outer-ul {  
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	display: flex;
+	justify-content: space-between;
+	list-style-type: none;
+	margin: 0;
+}
+#topbar ul li {
+	color: #fefefe;
+	margin-left: 25px;
+	font-family: Roboto;
+	font-size: .85rem;
+	transition: .25s ease-out;
+}
+#topbar #outer-ul > li {
+	position: relative;
+} 
+#topbar ul li a {
+	color: #fefefe;
+	text-decoration: none;
+	transition: .25s ease-out;
+}
+#topbar ul li:hover {
+	color: #ffcb04;
+	cursor: pointer;
+} 
+#topbar ul li a:hover {
+	color: #ffcb04;
+}
+#topbar #outer-ul .menu {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 16px;
+	z-index: 9;
+	background: #1a1919;
+	list-style-type: none;
+	color: #fefefe;
+	padding: 20px 0 20px 20px;
+	width: 180px; 
+}
+#topbar #outer-ul .menu li {
+	padding: 15px 0;
+	text-align: left;
+	margin-left: 0;
+	font-size: .85rem;
+}
+#topbar #outer-ul .menu li:last-of-type {
+	padding-bottom: 0;
+}
+#topbar #outer-ul > li:hover .menu {
+	display: block;
+}
+.fa-caret-down {
+	color: #d6aa00;
+	padding-left: 5px;
+} 
+#login {
+	width: 150px;
+	height: 40px;
+	padding: 11px 20px;
+	border: 1px solid #fefefe;
+	align-self: center;
+	text-transform: uppercase;
+	font-size: .7rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	transition: .25s ease-out;
+}
+#topbar #login:hover {
+	background: #fefefe;
+	color: #1a1919;
+}
+#container>h2:before {
+		position: absolute;
+		top: -40px;
+		left: 48%;
+		content: "";
+		width: 50px;
+		height: 2px;
+		background: #ffcb04;
+}
+
+#overlay {
+	display: none;
+}
+#container {
+    margin: 150px auto 0 auto;
+	max-width: 750px;
+	width: 65%;
+	position: relative;
+}
+
+h2 {
+	position: relative;	
+	text-transform: uppercase;
+	font-family: Roboto, sans-serif;
+	font-size: 2.25rem;
+	line-height: 1.6;
+	text-align: center;
+}
+
+input, fieldset {
+	width: 96%;
+	margin-top: 15px;
+	display: block;
+	height: 40px;
+	background: #ededed;
+	border: 1px solid #1a1919;
+	color: #1a1919;
+	font-family: Roboto;
+	text-align: left;
+	padding-left: 15px;
+	font-size: .9rem;
+	letter-spacing: 1px;
+	box-sizing: border-box;
+}
+input:first-of-type {
+	margin-top: 50px;
+}
+input::placeholder {
+	color: #bbb;
+	opacity: 1; /* Firefox */
+	letter-spacing: .8px;
+}
+input[type=submit] {
+	cursor: pointer;
+	width: 50%;
+	border: none;
+	background: #ffcb04;
+	color: #1a1919;
+	text-align: center;
+	font-weight: bold;
+	height: 50px;
+	outline: none; 
+	transition: .25s ease-out; 
+	margin-top: 30px;	
+
+}
+input[type=submit]:hover {
+	background: #1a1919;
+	color: #fefefe;
+}
+
+span.popup { /* try as I might, I can't seem to pad this error display "box" */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.6);
+	font-family: Roboto, sans-serif;
+	font-size: 1.25rem;
+	background: #ededed;
+	color: #1a1919;
+	max-width: 400px;
+	padding: 0 25px;
+	height: 125px;
+	margin: 10px auto;
+	position: absolute;
+	top: 0;
+	/*left: 30%;*/
+	left: 50%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 1;
+    animation-name: ethereal;
+	animation-duration: 3.5s;
+	animation-fill-mode: forwards;  
+}
+
+/* Add animation to make popup show for a few seconds */
+@-webkit-keyframes ethereal {
+    0% {visibility: hidden;} 
+    50% {visibility: visible;}
+	100% {visibility: hidden;}
+}
+
+@media (max-width: 1000px) {
+	
+/* I learned about this animation in Dan's animation seminar at Noble */
+	
+	@keyframes slide-in { 
+		0% {
+			opacity: 0;
+			/*transform: translateY(100px) scale(.9); */
+			transform: translateY(200px) scale(.9);
+		}
+		100% {
+			opacity: 1;
+			/*transform: none; I don't see the point of this */
+		}
+	}
+#topbar:after {
+	display: none;
+}
+/* burger comes into play when we go down to 2 blog cards per "row" */	
+	
+#burger {
+	width: 30px;
+	position: absolute;
+	top: 25px;
+	right: 25px; 
+	display: none; 
+	cursor: pointer;
+}
+/* these are the components of the burger "icon" */
+
+.bar1, .bar2, .bar3 {
+	width: 30px;
+	height: 2px;
+	background-color: #fefefe;
+	margin: 3px 0; 
+	transition: .25s ease-out;
+}
+#burger:hover div {
+	background-color: #ccc;
+}
+.change .bar1 {
+	transform: rotate(-45deg) translate(-4px, 4px); 
+	}
+.change .bar2 {
+	opacity: 0;
+}
+.change .bar3 {
+	transform: rotate(45deg) translate(-3px, -3px); 
+}
+	*:after, *:before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#overlay li a 
+	{margin:0;padding:0;border:0 none;position: relative; outline: none;
+}	
+
+#overlay {
+	width: 100%;
+	position: fixed;
+	top: 70px;
+	bottom: 0;
+	background: #1a1919;
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#overlay ul {
+	padding-top: 30px;
+	height: 100%;
+}
+#overlay li {
+	height: 5%;
+	text-align: center;
+	margin-top: 7px;
+	position: relative;
+	opacity: 0;
+}
+#overlay li a {
+	font-family: Roboto, sans-serif;
+	color: #fefefe;
+	text-decoration: none;
+	z-index: 9;
+	display: inline-block;
+	padding-bottom: 4px;
+	font-size: 1rem;
+	letter-spacing: .8px;
+}
+#overlay .gold {
+	color: #ffcb04;
+}
+#overlay.show {
+	z-index: 9;
+	display: flex;
+	justify-content: center;
+}
+#overlay li a:before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#overlay li a:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#overlay li a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px; 
+  bottom: 0;
+  left: 0;
+  background: #fefefe;
+  visibility: hidden;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: .3s linear; /*.25s linear; */
+}
+#overlay li a:hover:before,
+#overlay li a:focus:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+#overlay li {
+		animation-name: slide-in;
+		animation-duration: .5s; /*1s; */
+		animation-fill-mode: forwards; 
+	}
+	/* let each component of the "title" make its appearance individually */
+	
+/*#overlay li:nth-child(1) {
+		animation-delay: .5s;
+	}*/
+#overlay li:nth-child(2) {	
+		animation-delay: .25s;
+	}
+#overlay li:nth-child(3) {
+		animation-delay: .5s;
+	}	
+#overlay li:nth-child(4) {
+		animation-delay: .75s;
+	}	
+	#overlay li:nth-child(5) {
+		animation-delay: 1s;
+	}	
+	#overlay li:nth-child(6) {
+		animation-delay: 1.25s;
+	}	
+	#overlay li:nth-child(7) {
+		animation-delay: 1.5s;
+	}	
+	
+	#topbar span:hover { 
+		cursor: pointer;
+	}
+	#burger:hover div {
+		cursor: pointer;
+	}
+	
+	#topbar #outer-ul {
+		display: none;
+	}
+	#topbar span {
+		display: none;
+	}
+	
+	#burger {
+		display: block;
+	}
+	input[type=submit] {	
+		width: 60%;
+	}
+		
+}
